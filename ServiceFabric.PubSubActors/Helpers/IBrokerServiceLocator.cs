@@ -13,7 +13,7 @@ namespace ServiceFabric.PubSubActors.Helpers
         Task<Uri> LocateAsync();
 
         /// <summary>
-        /// Registers the default <see cref="BrokerServiceBase"/> by name.
+        /// Registers the default <see cref="BrokerService"/> by name.
         /// </summary>
         /// <param name="brokerServiceName"></param>
         /// <returns></returns>

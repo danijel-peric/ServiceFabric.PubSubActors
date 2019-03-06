@@ -43,7 +43,7 @@ namespace ServiceFabric.PubSubActors.Helpers
             if (message == null) throw new ArgumentNullException(nameof(message));
             var resolvedPartition = await GetPartitionForMessageAsync(message, brokerServiceName);
             return _serviceProxyFactory.CreateServiceProxy<IBrokerService>(
-                brokerServiceName ?? await LocateAsync(), resolvedPartition, listenerName: BrokerServiceBase.ListenerName);
+                brokerServiceName ?? await LocateAsync(), resolvedPartition, listenerName: BrokerService.ListenerName);
         }
 
         /// <inheritdoc />
@@ -51,7 +51,7 @@ namespace ServiceFabric.PubSubActors.Helpers
         {
             var resolvedPartition = await GetPartitionForMessageAsync(messageTypeName, brokerServiceName);
             return _serviceProxyFactory.CreateServiceProxy<IBrokerService>(
-                brokerServiceName ?? await LocateAsync(), resolvedPartition, listenerName: BrokerServiceBase.ListenerName);
+                brokerServiceName ?? await LocateAsync(), resolvedPartition, listenerName: BrokerService.ListenerName);
         }
 
         /// <inheritdoc />

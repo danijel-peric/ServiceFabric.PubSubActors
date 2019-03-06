@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 namespace ServiceFabric.PubSubActors.State
 {
     [DataContract]
-    internal sealed class BrokerServiceState
+    public sealed class BrokerServiceState
     {
         private static readonly IEnumerable<Reference> Empty = ImmutableList<Reference>.Empty;
 

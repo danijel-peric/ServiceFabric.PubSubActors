@@ -25,7 +25,7 @@ namespace ServiceFabric.PubSubActors.Helpers
         /// <param name="maxAttempts">#Attempts to execute <paramref name="operation"/> (optional)</param> 
         /// <param name="initialDelay">First delay between attempts. Later on this will be exponentially grow. (optional)</param>
         /// <returns></returns>
-        public static async Task<TResult> ExecuteInTransaction<TResult>(IReliableStateManager stateManager, 
+        public static async Task<TResult> ExecuteInTransaction<TResult>(this IReliableStateManager stateManager, 
             Func<ITransaction, CancellationToken, object, Task<TResult>> operation, 
             object state = null, 
             CancellationToken cancellationToken = default(CancellationToken), 
@@ -71,7 +71,7 @@ namespace ServiceFabric.PubSubActors.Helpers
         /// <param name="maxAttempts">#Attempts to execute <paramref name="operation"/> (optional)</param> 
         /// <param name="initialDelay">First delay between attempts. Later on this will be exponentially grow. (optional)</param>
         /// <returns></returns>
-        public static async Task ExecuteInTransaction(IReliableStateManager stateManager, Func<ITransaction, CancellationToken, 
+        public static async Task ExecuteInTransaction(this IReliableStateManager stateManager, Func<ITransaction, CancellationToken, 
             object, Task> operation,
             object state = null,
             CancellationToken cancellationToken = default(CancellationToken),
